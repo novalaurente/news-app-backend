@@ -6,7 +6,7 @@ const SyncRouter = require("./routes/sync_router");
 const app = express();
 const cors = require("cors");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 require('./database');
 
