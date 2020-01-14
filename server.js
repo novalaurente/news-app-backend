@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const NewsRouter = require("./routes/news_router");
 const SourcesRouter = require("./routes/sources_router");
@@ -12,6 +13,9 @@ require('./database');
 // middlewares
 app.use(express.json());
 app.use(cors());
+app.use('/', function(req, res) {
+  res.send('OK');
+})
 app.use('/sources', SourcesRouter);
 app.use('/news', NewsRouter);
 app.use('/sync', SyncRouter)
