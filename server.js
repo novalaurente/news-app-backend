@@ -13,12 +13,12 @@ require('./database');
 // middlewares
 app.use(express.json());
 app.use(cors());
-app.use('/', function(req, res) {
-  res.send('OK');
-})
 app.use('/sources', SourcesRouter);
 app.use('/news', NewsRouter);
 app.use('/sync', SyncRouter)
+app.use('/', function(req, res) {
+  res.send('OK');
+})
 
 app.listen(PORT, ()=>{
   console.log(`Server running on port ${PORT}`);
